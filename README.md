@@ -1,7 +1,7 @@
 # aka-secret-manager
 
 
-Desenvolvendo um Secret Manager para estudos de criptografia e API em .NET 10.
+Desenvolvendo um Secret Manager para estudos de criptografia e API em .NET 10 + Rust.
 
 ## Rascunho:
 
