@@ -19,3 +19,34 @@ RUST para os processos críticos e que exigem segurança de memória e c# .net c
 Banco vai ser o PostgreSQL para os dados binários BYTEA.
 Redis para database cache de dados CRIPTOGRAFADOS. Nenhuma secret fica em plain text no cache e nenhuma info imprtante. Apenas um simples Database-Cache, já que o sistema vai ter muitas requests (na ideia da aruqitetura).
 
+KEK e DEKs para a criptografia.
+
+labels de vervionamento: CURRENT | PREVIOUS | PENDIND
+
+Hash nos logs.
+
+Arquitetura: Vertical Slice Architecture
+
+Sistema seria separado em camadas
+
+- CAMADA KMS: Gerencia a criptografia (cifra/decifra outras chaves).
+- Secret Store: Gerencia o **ciclo de vida** do secret: armazenamento, controle de acesso, rotação, auditoria.
+- Aplicação: Autentica-se, lê o secret em runtime, usa e descarta.
+- IAM: Gerenciamento de user e crachás
+
+
+Arquivo -> DEK -> KEK (KEK poderia ser gerada por projeto/uusário) e a dek é salva junto e descartada da memória. <-- rust
+
+---
+
+## Referencias
+
+- https://zerotohero-dev.translate.goog/inbox/dek-kek/?_x_tr_sl=en&_x_tr_tl=pt&_x_tr_hl=pt&_x_tr_pto=tc
+- https://dev.to/devdoido/conheca-o-clean-vertical-sliced-architecture-a-uniao-dos-2-mundos-4gnd
+- https://github.com/Infisical/infisical
+- https://dev.to/gramli/net-vertical-slice-architecture-vs-clean-architecture-a-practical-comparison-using-real-apis-4mck
+- https://codewithmukesh.com/blog/api-key-authentication-aspnet-core/
+- https://codewithmukesh.com/blog/minimal-apis-aspnet-core/
+- https://hidekazu-konishi.com/entry/aws_kms_envelope_encryption_and_data_key_caching_guide.html
+- https://notes.kodekloud.com/docs/HashiCorp-Certified-Vault-Associate-Certification/Learning-the-Vault-Architecture/Unsealing-with-Key-Shards/page
+- https://developer.hashicorp.com/vault/docs/internals/security
