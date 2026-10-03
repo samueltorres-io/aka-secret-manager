@@ -14,3 +14,8 @@ Versionamento configurável pelo user, para evitar quebrar e conseguir recuperar
 Uma feature a mais interessante poderia ser a de gerar secrets random com rotação automática e programada, pois vai que o user quer uma secret auto-rotacionável e não quer rotacionar na mão!
 
 Auditoria completa de acessos, requestst e modificações, etc... <-- Via dashboard simples
+
+RUST para os processos críticos e que exigem segurança de memória e c# .net com o restante.
+Banco vai ser o PostgreSQL para os dados binários BYTEA.
+Redis para database cache de dados CRIPTOGRAFADOS. Nenhuma secret fica em plain text no cache e nenhuma info imprtante. Apenas um simples Database-Cache, já que o sistema vai ter muitas requests (na ideia da aruqitetura).
+
