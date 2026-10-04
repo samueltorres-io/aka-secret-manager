@@ -37,6 +37,8 @@ Sistema seria separado em camadas
 
 Arquivo -> DEK -> KEK (KEK poderia ser gerada por projeto/uusário) e a dek é salva junto e descartada da memória. <-- rust
 
+Lib HPKE nativa para o .NET11. Além de aproveitar as classes ONION abstratas que virá com o novo .NET11
+
 ---
 
 ## Referencias
